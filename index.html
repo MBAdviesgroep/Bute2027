@@ -5282,6 +5282,7 @@ function flushPendingSaves() {
       body: JSON.stringify({ data: data, updated_at: new Date().toISOString() }),
       keepalive: true
     }).catch(function(){});
+  } catch(e) { console.error('flushPendingSaves', e); }
 }
 window.addEventListener('beforeunload', flushPendingSaves);
 window.addEventListener('pagehide', flushPendingSaves);

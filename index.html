@@ -5253,7 +5253,6 @@ function _doSlaOp() {
     },
     body: JSON.stringify({ data: data, updated_at: new Date().toISOString() })
   })
-  })
   .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); isSaving = false; if (data._versie) { lastSaveVersion = data._versie; logWijziging(huidigGebruiker || 'Onbekend', data._versie, window._laatsGewijzigdWat || ''); window._laatsGewijzigdWat = ''; } setStatus('\u2714 Opgeslagen voor iedereen', 'ok'); if (pendingSave) { pendingSave = false; _doSlaOp(); } })
   .catch(function(e) { isSaving = false; console.error(e); setStatus('\u26a0 Cloud mislukt — lokaal bewaard', 'fout'); });
 }
